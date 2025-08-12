@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños con Snoopy! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #ff69b4;
+            --soft-pink: #ffb6c1;
+            --light-pink: #ffc0cb;
+            --yellow: #ffd700;
+            --white: #ffffff;
+            --dark: #333333;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--light-pink) 50%, var(--primary-pink) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Página Principal */
+        .main-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .birthday-title {
+            font-size: clamp(2rem, 8vw, 4rem);
+            color: var(--white);
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px var(--shadow);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .birthday-scene {
+            position: relative;
+            margin: 30px 0;
+            animation: scaleIn 1.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Snoopy Image Container */
+        .snoopy-container {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(1deg) scale(1.02); }
+            75% { transform: rotate(-1deg) scale(1.02); }
+        }
+
+        .snoopy-image {
+            max-width: 70%;
+            max-height: 70%;
+            justify-content: center;
+            filter: drop-shadow(0 10px 30px var(--shadow));
+            animation: bounce-subtle 2s ease-in-out infinite;
+            margin-bottom: 150px;
+        }
+
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .snoopy-placeholder {
+            width: 200px;
+            height: 120px;
+            background: transparent;
+            border: 3px dashed var(--primary-pink);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--white);
+            text-align: center;
+            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Pastel de Cumpleaños Mejorado */
+        .cake-container {
+            position: relative;
+            margin: 30px auto;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Base del pastel */
+        .cake-base {
+            width: 220px;
+            height: 120px;
+            background: linear-gradient(145deg, #8B4513, #A0522D, #CD853F);
+            border-radius: 15px 15px 8px 8px;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        /* Segundo piso del pastel */
+        .cake-layer2 {
+            width: 180px;
+            height: 80px;
+            background: linear-gradient(145deg, #DEB887, #F4A460, #D2B48C);
+            border-radius: 12px 12px 6px 6px;
+            position: absolute;
+            top: -60px;
+            left: 20px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        /* Tercer piso del pastel */
+        .cake-layer3 {
+            width: 140px;
+            height: 60px;
+            background: linear-gradient(145deg, #FFE4E1, #FFF0F5, #FFCCCB);
+            border-radius: 10px 10px 5px 5px;
+            position: absolute;
+            top: -45px;
+            left: 20px;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        /* Frosting decorativo */
+        .cake-frosting {
+            width: 240px;
+            height: 25px;
+            background: linear-gradient(90deg, var(--light-pink), var(--primary-pink), var(--light-pink));
+            border-radius: 50px;
+            position: absolute;
+            top: -12px;
+            left: -10px;
+            box-shadow: 0 3px 10px var(--shadow);
+        }
+
+        .cake-frosting2 {
+            width: 200px;
+            height: 20px;
+            background: linear-gradient(90deg, #FFB6C1, #FF69B4, #FFB6C1);
+            border-radius: 40px;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .cake-frosting3 {
+            width: 160px;
+            height: 18px;
+            background: linear-gradient(90deg, #FFC0CB, #FF1493, #FFC0CB);
+            border-radius: 30px;
+            position: absolute;
+            top: -9px;
+            left: -10px;
+            box-shadow: 0 2px 6px var(--shadow);
+        }
+
+        /* Decoraciones del pastel */
+        .cake-decoration {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .decoration1 { background: #FF6347; top: 30px; left: 30px; animation-delay: 0s; }
+        .decoration2 { background: #32CD32; top: 40px; left: 60px; animation-delay: 0.5s; }
+        .decoration3 { background: #FFD700; top: 35px; left: 90px; animation-delay: 1s; }
+        .decoration4 { background: #FF69B4; top: 45px; left: 120px; animation-delay: 1.5s; }
+        .decoration5 { background: #00CED1; top: 25px; left: 150px; animation-delay: 0.3s; }
+
+        /* Velas mejoradas */
+        .candle {
+            width: 10px;
+            height: 45px;
+            background: linear-gradient(180deg, var(--yellow), #FFA500, var(--yellow));
+            position: absolute;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px var(--shadow);
+        }
+
+      
+
+        .flame {
+            width: 14px;
+            height: 18px;
+            background: radial-gradient(ellipse at center, #FFD700 20%, #FF6347 40%, #FF4500 70%, #DC143C 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute;
+            top: -18px;
+            left: -2px;
+            animation: flicker 0.8s ease-in-out infinite alternate;
+            filter: blur(0.5px);
+        }
+
+        @keyframes flicker {
+            0% { 
+                transform: scale(1) rotate(1deg); 
+                opacity: 0.9;
+            }
+            100% { 
+                transform: scale(1.1) rotate(-1deg); 
+                opacity: 1;
+            }
+        }
+
+        /* Plato del pastel */
+        .cake-plate {
+            width: 280px;
+            height: 20px;
+            background: linear-gradient(145deg, #C0C0C0,  #DCDCDC);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -15px;
+            left: -30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        /* Contenedor de audio */
+    .audio-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px; /* Opcional: para separarlo de otros elementos */
+    }
+        /* Botones de Personajes */
+        /* Código CSS corregido */
+/* ... (todo el código anterior es válido hasta la sección de botones) ... */
+
+/* Botones de Personajes */
+.character-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    max-width: 100%;
+}
+
+.character-btn {
+    width: 120px;
+    height: 120px;
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--white), var(--light-pink));
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.character-btn:hover {
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 15px 35px var(--shadow);
+    border-color: var(--primary-pink);
+}
+
+/* Nuevas reglas CSS para las imágenes dentro de los botones */
+.character-btn img {
+     width: 90%; /* Reducimos un poco el ancho para dejar margen */
+    height: 90%; /* Reducimos un poco el alto para dejar margen */
+    object-fit: contain; /* Asegura que la imagen completa sea visible */
+    border-radius: 50%; /* Mantiene la forma circular (aunque con 'contain' podría verse el fondo) */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen dentro del círculo */
+}
+
+/* ... (el resto del CSS es el mismo) ... */
+        /* Páginas de Personajes */
+        .character-page {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .character-page.active {
+            display: flex;
+        }
+
+        .character-title {
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--white);
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px var(--shadow);
+        }
+
+        .character-image {
+            width: 250px;
+            height: 250px;
+            background: var(--white);
+            border-radius: 50%;
+            margin: 20px auto;
+            box-shadow: 0 15px 40px var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--dark);
+            position: relative;
+            overflow: hidden;
+            position: relative;
+        }
+        .character-image img {
+          display: block;
+          max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit:contain;
+            object-fit: cover;
+
+        }
+
+        .back-btn {
+            background: var(--white);
+            color: var(--dark);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            background: var(--primary-pink);
+            color: var(--white);
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-pink);
+            top: -10px;
+            animation: confetti-fall linear infinite;
+        }
+
+        .confetti:nth-child(odd) {
+            background: var(--yellow);
+            width: 8px;
+            height: 8px;
+            animation-duration: 3s;
+        }
+
+        .confetti:nth-child(even) {
+            background: var(--light-pink);
+            width: 6px;
+            height: 6px;
+            animation-duration: 2.5s;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .character-buttons {
+                gap: 15px;
+            }
+
+            .character-btn {
+                width: 100px;
+                height: 100px;
+                font-size: 0.8rem;
+            }
+
+            .snoopy-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .cake-container {
+                transform: scale(0.8);
+            }
+
+            .character-image {
+                width: 180px;
+                height: 180px;
+            }
+        }
+         .dark-pink-centered {
+    color: #C71585; /* Este es un tono de rosa oscuro llamado "MediumVioletRed" */
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .dark-pink-centered-targaryen {
+    color: #C71585; /* Este es un tono de rosa oscuro llamado "MediumVioletRed" */
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .dark-pink-centered-snoopy {
+    color: #C71585; /* Este es un tono de rosa oscuro llamado "MediumVioletRed" */
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+    </style>
+</head>
+<body>
+    <!-- Página Principal -->
+    <div id="mainPage" class="main-page">
+        <h1 class="birthday-title">¡Feliz Cumpleaños! 🎂</h1>
+        
+        <div class="birthday-scene">
+            <!-- Snoopy -->
+            <div class="snoopy-container">
+                
+                <img src="img/snoopy.png" alt="Snoopy" class="snoopy-image">
+                
+               
+            </div>
+
+            <!-- Pastel -->
+            <div class="cake-container">
+                
+                <div class="cake-plate"></div>
+                <div class="cake-base">
+                    
+                    <div class="cake-frosting"></div>
+                    <div class="cake-decoration decoration1"></div>
+                    <div class="cake-decoration decoration2"></div>
+                    <div class="cake-decoration decoration3"></div>
+                    <div class="cake-decoration decoration4"></div>
+                    <div class="cake-decoration decoration5"></div>
+                    
+                    <div class="cake-layer2">
+                        
+                        <div class="cake-frosting2"></div>
+                        
+                        
+                        
+                        <div class="cake-layer3">
+                            <div class="cake-frosting3"></div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="dark-pink-centered-snoopy">────  Bienvenida ─── ୭˚. ᵎᵎ </p><br><br>
+            <p class="dark-pink-centered-snoopy">𓆝 ⋆.𖦹°‧🫧 </p>
+        </div>
+        <p class="dark-pink-centered-snoopy">reproduce la siguiente canción </p>
+
+       <!--audio -->
+       <div class="audio-container">
+    <audio controls >
+        <source src="sounds/cumpleanos.mp3" type="audio/mpeg">
+       
+    </audio>
+</div>
+<br><p class="dark-pink-centered-snoopy">────  Elige un personaje  ─── ୭˚. ᵎᵎ </p>
+        <!-- Botones de Personajes -->
+        <div class="character-buttons">
+            <button class="character-btn" onclick="showCharacter(1)">
+                <img src="img/aurora.png" alt="Aurora">
+            </button>
+            <button class="character-btn" onclick="showCharacter(2)">
+                 <img src="img/targaryen.png" alt="Targaryen">
+                </button>
+                <button class="character-btn" onclick="showCharacter(3)">
+                    <img src="img/hange.png" alt="Hange">
+                </button>
+            </div>
+
+    <!-- Página Personaje 1 -->
+    <div id="characterPage1" class="character-page">
+        <h1 class="character-title">¡Personaje 1!</h1>
+        <div class="character-image">
+            <img src="img/aurora.png" alt="Aurora">
+        </div>
+        <p style="color: var(--dark); font-size: 1.2rem; margin: 20px 0; max-width: 300px;">
+            <img src="img/carta.png" alt="carta" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px var(--shadow);">
+        </p>
+        <button class="back-btn" onclick="showMain()">← Volver al Inicio</button>
+    </div>
+
+    <!-- Página Personaje 2 -->
+    <div id="characterPage2" class="character-page">
+        <h1 class="character-title">¡Personaje 2!</h1>
+        <div class="character-image">
+            <img src="img/targaryen.png" alt="Targaryen">
+        </div>
+        <p style="color: var(--white); font-size: 1.2rem; margin: 20px 0; max-width: 300px;">
+            <p class="dark-pink-centered-targaryen">─ si depronto no la puedes ver, dejo el enlace a la página ⋆⭒˚.⋆🪐 ⋆⭒˚.⋆   </p>
+           <a href="https://tiburoncin.straw.page/">⋆˚✿˖°</a><br>
+              <iframe 
+        src="https://tiburoncin.straw.page/" 
+        width="100%" 
+        height="600" 
+        style="border:none;">
+    </iframe>
+        </p>
+        <button class="back-btn" onclick="showMain()">← Volver al Inicio</button>
+    </div>
+
+    <!-- Página Personaje 3 -->
+    <div id="characterPage3" class="character-page">
+        <h1 class="character-title">¡Personaje 3!</h1>
+        <div class="character-image">
+            <img src="img/hange.png" alt="Hange">
+        </div>
+       
+    <p class="dark-pink-centered">────  Playlist ──── ₍^. .^₎⟆ </p>
+
+        <p style="color: var(--white); font-size: 1.2rem; margin: 20px 0; max-width: 300px;">
+              <iframe data-testid="embed-iframe" style="border-radius:12px"
+               src="https://open.spotify.com/embed/playlist/70FvAcFMoWvGM2JbJsDduB?utm_source=generator" 
+               width="100%" height="352" frameBorder="0" allowfullscreen="" 
+               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+               loading="lazy"></iframe>
+        </p>
+        <button class="back-btn" onclick="showMain()">← Volver al Inicio</button>
+    </div>
+
+    <script>
+        // Función para mostrar página de personaje
+        function showCharacter(num) {
+            document.getElementById('mainPage').style.display = 'none';
+            document.querySelectorAll('.character-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('characterPage' + num).classList.add('active');
+            createConfetti();
+        }
+
+        // Función para volver a la página principal
+        function showMain() {
+            document.querySelectorAll('.character-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('mainPage').style.display = 'flex';
+            clearConfetti();
+        }
+
+        // Función para crear confetti
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    confetti.style.backgroundColor = getRandomColor();
+                    document.body.appendChild(confetti);
+
+                    // Remover confetti después de la animación
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 4000);
+                }, i * 100);
+            }
+        }
+
+        // Función para limpiar confetti
+        function clearConfetti() {
+            document.querySelectorAll('.confetti').forEach(confetti => {
+                confetti.remove();
+            });
+        }
+
+        // Función para colores aleatorios
+        function getRandomColor() {
+            const colors = ['#ff69b4', '#ffb6c1', '#ffc0cb', '#ffd700', '#ff6347', '#98fb98'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Animación inicial de confetti
+        window.addEventListener('load', () => {
+            setTimeout(createConfetti, 1000);
+            // Repetir confetti cada 10 segundos en la página principal
+            setInterval(() => {
+                if (document.getElementById('mainPage').style.display !== 'none') {
+                    createConfetti();
+                }
+            }, 10000);
+        });
+
+        // Efectos de sonido simulados (puedes añadir archivos de audio reales)
+        function playClickSound() {
+            console.log('¡Click! 🎵');
+        }
+
+        // Añadir sonidos a los botones
+        document.querySelectorAll('.character-btn, .back-btn').forEach(btn => {
+            btn.addEventListener('click', playClickSound);
+        });
+    </script>
+</body>
+</html>
